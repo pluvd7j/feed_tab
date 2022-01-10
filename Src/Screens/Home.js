@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, PermissionsAndroid } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataAddedFailure, dataAddedSuccess } from '../../Redux/Action/action';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import VideoPlayer from 'react-native-video-player';
@@ -14,16 +13,12 @@ import ModalDropdown from 'react-native-modal-dropdown';
 
 // create a component
 const Home = (props) => {
-    const dispatch = useDispatch();
-    // let dataAdd = useSelector(state => state.addData?.dataAddedSuc);
-
     const [dataAdd, setDataAdd] = useState(useSelector(state => state.addData?.dataAddedSuc));
 
     console.log("here", dataAdd)
 
 
     useEffect(() => {
-        // dispatch(dataAddedFailure('data'))
         requestCameraPermission()
     }, [])
     const requestCameraPermission = async () => {
