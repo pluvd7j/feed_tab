@@ -13,10 +13,15 @@ import ModalDropdown from 'react-native-modal-dropdown';
 
 // create a component
 const Home = (props) => {
-    const [dataAdd, setDataAdd] = useState(useSelector(state => state.addData?.dataAddedSuc));
+
+    const FeedData = useSelector(state => state.addData?.dataAddedSuc);
+    const [dataAdd, setDataAdd] = useState(FeedData);
 
     console.log("here", dataAdd)
 
+    useEffect(() => {
+        setDataAdd(FeedData)
+    }, [FeedData])
 
     useEffect(() => {
         requestCameraPermission()
