@@ -1,6 +1,6 @@
 //import liraries
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker'
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
@@ -9,6 +9,7 @@ import { dataAddedSuccess } from '../../Redux/Action/action';
 import VideoPlayer from 'react-native-video-player';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from 'moment';
+import styles from '../../Css/style';
 
 // create a component
 const AddScreen = (props) => {
