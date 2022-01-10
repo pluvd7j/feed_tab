@@ -1,54 +1,63 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 // define your styles
 const styles = StyleSheet.create({
-    container: { 
-        flexDirection: "column", 
-        backgroundColor: "#fff", 
-        height: "100%" 
+    container: {
+        flexDirection: "column",
+        backgroundColor: "#fff",
+        height: "100%"
     },
-    noDataContainer: { 
-        height: '90%', 
-        width: "100%" 
+    noDataContainer: {
+        height: '90%',
+        width: "100%"
     },
-    noDataText: { 
-        textAlign: "center", 
-        marginTop: "auto", 
-        marginBottom: "auto" 
+    noDataText: {
+        textAlign: "center",
+        marginTop: "auto",
+        marginBottom: "auto"
     },
-    homeScroll: { 
-        height: '90%', 
-        width: "95%", 
-        alignSelf: "center" 
+    sortByContainer: {
+        flexDirection: "row",
+        marginLeft: "auto",
+        right: 15
     },
-    imageHome: { 
-        width: "100%", 
-        height: 200 
+    sortByText: {
+        color: "#000",
+        left: 5
     },
-    shareButtonContainer: { 
-        position: "absolute", 
-        width: "100%" 
+    homeScroll: {
+        height: '90%',
+        width: "95%",
+        alignSelf: "center"
     },
-    shareButton: { 
-        marginLeft: "auto", 
-        top: 5 
+    imageHome: {
+        width: "100%",
+        height: 200
     },
-    textContainer: { 
-        borderColor: "#000", 
-        borderWidth: 1, 
-        width: "100%", 
-        padding: 8 
+    shareButtonContainer: {
+        position: "absolute",
+        width: "100%"
     },
-    textSubContainer: { 
-        flexDirection: "row", 
-        justifyContent: "space-between", 
-        width: "100%" 
+    shareButton: {
+        marginLeft: "auto",
+        top: 5
     },
-    addButton: { 
-        flexDirection: "row", 
-        marginLeft: "auto", 
-        marginRight: 'auto', 
-        padding: 8 
+    textContainer: {
+        borderColor: "#000",
+        borderWidth: 1,
+        width: "100%",
+        padding: 8
+    },
+    textSubContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        width: "100%"
+    },
+    addButton: {
+        flexDirection: "row",
+        marginLeft: "auto",
+        marginRight: 'auto',
+        padding: 8
     },
     image: {
         width: "95%",
@@ -66,9 +75,9 @@ const styles = StyleSheet.create({
         marginLeft: "auto",
         marginRight: 10
     },
-    titleContainer: { 
-        flexDirextion: "row", 
-        padding: 10 
+    titleContainer: {
+        flexDirextion: "row",
+        padding: 10
     },
     title: {
         color: "#000",
@@ -88,38 +97,38 @@ const styles = StyleSheet.create({
         width: "95%",
         alignSelf: "center"
     },
-    dateText: { 
-        color: "#000", 
-        textAlign: "center", 
-        top: 10 
+    dateText: {
+        color: "#000",
+        textAlign: "center",
+        top: 10
     },
-    dateIcon: { 
-        marginLeft: "auto", 
-        bottom: 10 
+    dateIcon: {
+        marginLeft: "auto",
+        bottom: 10
     },
-    submitButtonContainer: { 
-        flexDirection: "row", 
-        justifyContent: "space-evenly", 
-        width: "100%", 
-        padding: 10 
+    submitButtonContainer: {
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        width: "100%",
+        padding: 10
     },
-    submitButtonSubContainer: { 
-        flexDirection: "column", 
-        width: "45%" 
+    submitButtonSubContainer: {
+        flexDirection: "column",
+        width: "45%"
     },
-    cancelButton: { 
-        backgroundColor: "pink", 
-        borderColor: "yellow", 
-        borderWidth: 0.5, 
-        borderRadius: 5, 
-        padding: 8, 
+    cancelButton: {
+        backgroundColor: "pink",
+        borderColor: "yellow",
+        borderWidth: 0.5,
+        borderRadius: 5,
+        padding: 8,
     },
-    submitButton: { 
-        backgroundColor: "lightblue", 
-        borderColor: "green", 
-        borderWidth: 0.5, 
-        borderRadius: 5, 
-        padding: 8, 
+    submitButton: {
+        backgroundColor: "lightblue",
+        borderColor: "green",
+        borderWidth: 0.5,
+        borderRadius: 5,
+        padding: 8,
     }
 });
 

@@ -9,12 +9,16 @@ import VideoPlayer from 'react-native-video-player';
 import Share from "react-native-share";
 import RNFS from 'react-native-fs';
 import styles from '../../Css/style';
+import ModalDropdown from 'react-native-modal-dropdown';
 
 
 // create a component
 const Home = (props) => {
     const dispatch = useDispatch();
-    let dataAdd = useSelector(state => state.addData?.dataAddedSuc)
+    // let dataAdd = useSelector(state => state.addData?.dataAddedSuc);
+
+    const [dataAdd, setDataAdd] = useState(useSelector(state => state.addData?.dataAddedSuc));
+
     console.log("here", dataAdd)
 
 
@@ -88,6 +92,28 @@ const Home = (props) => {
             });
     }
 
+    const sortByTime = (index, item) => {
+
+        if (dataAdd.length > 0) {
+            if (item == "Newest First") {
+                let data = [...dataAdd];
+                data.sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                })
+                setDataAdd(data)
+            } else {
+                let data = [...dataAdd];
+                data.sort((a, b) => {
+                    return new Date(a.date) - new Date(b.date);
+                })
+                setDataAdd(data)
+            }
+
+        }
+
+
+    };
+
 
 
     return (
@@ -102,6 +128,11 @@ const Home = (props) => {
                 :
                 <>
 
+                    <View style={styles.sortByContainer}>
+                        <ModalDropdown options={['Newest First', 'Oldest First']} onSelect={(index, item) => sortByTime(index, item)}>
+                            <Text style={styles.sortByText}>Sort By Time<FontAwesomeIcon name='filter' size={25} />  </Text>
+                        </ModalDropdown>
+                    </View>
                     <ScrollView style={styles.homeScroll} showsVerticalScrollIndicator={false}>
                         {dataAdd && dataAdd.map(item => (
                             <View style={{ padding: 3 }} key={new Date(item?.date).toString()} >
