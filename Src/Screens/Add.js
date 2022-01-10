@@ -112,33 +112,34 @@ const AddScreen = (props) => {
                 />
 
                 :
-                <Image style={{ width: "95%", height: 200, position: "relative", borderColor: "#000", borderWidth: 0.5, alignSelf: "center" }} source={gallerySrc} />
+                <Image style={styles.image} source={gallerySrc} />
             }
-            <View style={{ position: "absolute", width: "100%" }}>
+            <View style={styles.addButtonContainer}>
 
-                <TouchableOpacity style={{ marginLeft: "auto", marginRight: 10 }} onPress={selectVideo}>
+                <TouchableOpacity style={styles.addPencilButton} onPress={selectVideo}>
                     <MaterialCommunityIcon color={'darkgray'} size={35} name={'pencil-box-outline'} />
                 </TouchableOpacity>
             </View>
-            <View style={{ flexDirextion: "row" }}>
-                <Text style={{ color: "#000", marginLeft: 5, padding: 5 }}>*Banner is must</Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.title}>*Banner is must</Text>
             </View>
 
-            <View style={{ flexDirextion: "row", padding: 10 }}>
-                <Text style={{ color: "#000", marginLeft: 5, padding: 5 }}>Event Title*</Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.title}>Event Title*</Text>
                 <TextInput
-                    style={{ borderColor: "#000", borderWidth: 1, width: "95%", alignSelf: "center" }}
+                    style={styles.eventTitle}
                     value={title}
                     onChangeText={(text) => setTitle(text)} />
             </View>
 
-            <View style={{ flexDirextion: "row", padding: 10 }}>
-                <Text style={{ color: "#000", marginLeft: 5, padding: 5 }}>Event Date*</Text>
-                <TouchableOpacity onPress={() => setDatePicker(true)} style={{ borderColor: "#000", padding: 3, borderWidth: 1, width: "95%", alignSelf: "center", }}>
+            <View style={styles.titleContainer}>
+                <Text style={styles.title}>Event Date*</Text>
+                <TouchableOpacity onPress={() => setDatePicker(true)}
+                    style={styles.dateContainer}>
                     <View>
-                        <Text style={{ color: "#000", textAlign: "center", top: 10 }}>{date}</Text>
+                        <Text style={styles.dateText}>{date}</Text>
                         <FontAwesomeIcon
-                            name="calendar-o" size={25} style={{ marginLeft: "auto", bottom: 10 }}
+                            name="calendar-o" size={25} style={styles.dateIcon}
                         />
 
                     </View>
@@ -152,23 +153,23 @@ const AddScreen = (props) => {
 
             </View>
 
-            <View style={{ flexDirextion: "row", padding: 10 }}>
-                <Text style={{ color: "#000", marginLeft: 5, padding: 5 }}>Event Description*</Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.title}>Event Description*</Text>
                 <TextInput
-                    style={{ borderColor: "#000", borderWidth: 1, width: "95%", alignSelf: "center" }}
+                    style={styles.eventTitle}
                     value={description}
                     onChangeText={(text) => setDescription(text)} />
             </View>
-            <View style={{ flexDirection: "row", justifyContent: "space-evenly", width: "100%", padding: 10 }}>
-                <View style={{ flexDirection: "column", width: "45%" }}>
+            <View style={styles.submitButtonContainer}>
+                <View style={styles.submitButtonSubContainer}>
                     <TouchableOpacity onPress={cancel}
-                        style={{ backgroundColor: "pink", borderColor: "yellow", borderWidth: 0.5, borderRadius: 5, padding: 8, }}>
+                        style={styles.cancelButton}>
                         <Text style={{ textAlign: "center" }}>Cancel</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{ flexDirection: "column", width: "45%" }}>
+                <View style={styles.submitButtonSubContainer}>
                     <TouchableOpacity onPress={submit}
-                        style={{ backgroundColor: "lightblue", borderColor: "green", borderWidth: 0.5, borderRadius: 5, padding: 8, }}>
+                        style={styles.submitButton}>
                         <Text style={{ textAlign: "center" }}>Submit/Update</Text>
                     </TouchableOpacity>
                 </View>
@@ -177,15 +178,7 @@ const AddScreen = (props) => {
     );
 };
 
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
-});
+
 
 //make this component available to the app
 export default AddScreen;

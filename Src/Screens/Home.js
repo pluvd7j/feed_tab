@@ -1,5 +1,5 @@
 //import liraries
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, PermissionsAndroid } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataAddedFailure, dataAddedSuccess } from '../../Redux/Action/action';
@@ -8,11 +8,12 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import VideoPlayer from 'react-native-video-player';
 import Share from "react-native-share";
 import RNFS from 'react-native-fs';
+import styles from '../../Css/style';
+
 
 // create a component
 const Home = (props) => {
     const dispatch = useDispatch();
-    // const isFocused = useIsFocused()
     let dataAdd = useSelector(state => state.addData?.dataAddedSuc)
     console.log("here", dataAdd)
 
@@ -90,18 +91,18 @@ const Home = (props) => {
 
 
     return (
-        <View style={{ flexDirection: "column", backgroundColor: "#fff", height: "100%" }}>
+        <View style={styles.container}>
             {dataAdd.length === 0 ? (
 
-                <View style={{ height: '90%', width: "100%" }}>
-                    <Text style={{ textAlign: "center", marginTop: "auto", marginBottom: "auto" }}>There is No Data Available</Text>
+                <View style={styles.noDataContainer}>
+                    <Text style={styles.noDataText}>There is No Data Available</Text>
                 </View>
 
             )
                 :
                 <>
 
-                    <ScrollView style={{ height: '90%', width: "95%", alignSelf: "center" }} showsVerticalScrollIndicator={false}>
+                    <ScrollView style={styles.homeScroll} showsVerticalScrollIndicator={false}>
                         {dataAdd && dataAdd.map(item => (
                             <View style={{ padding: 3 }} key={new Date(item?.date).toString()} >
 
@@ -114,16 +115,16 @@ const Home = (props) => {
                                     />
 
                                     :
-                                    <Image style={{ width: "100%", height: 200 }} source={item.gallerySrc} />
+                                    <Image style={styles.imageHome} source={item.gallerySrc} />
                                 }
-                                <View style={{ position: "absolute", width: "100%" }}>
+                                <View style={styles.shareButtonContainer}>
 
-                                    <TouchableOpacity style={{ marginLeft: "auto", top: 5 }} onPress={() => share(item)} >
+                                    <TouchableOpacity style={styles.shareButton} onPress={() => share(item)} >
                                         <FontAwesomeIcon color={'#fff'} size={35} name={'share-alt-square'} />
                                     </TouchableOpacity>
                                 </View>
-                                <View style={{ borderColor: "black", borderWidth: 1, width: "100%", padding: 8 }}>
-                                    <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <View style={styles.textContainer}>
+                                    <View style={styles.textSubContainer}>
                                         <View style={{ flexDirection: "column" }}>
                                             <Text style={{ color: "#000" }}>Title: {item.title}</Text>
                                         </View>
@@ -146,7 +147,7 @@ const Home = (props) => {
             }
 
 
-            <TouchableOpacity style={{ flexDirection: "row", marginLeft: "auto", marginRight: 'auto', padding: 8 }}
+            <TouchableOpacity style={styles.addButton}
                 onPress={() => props.navigation.navigate('Add')}>
                 <Feather
                     name="plus-circle"
@@ -159,15 +160,7 @@ const Home = (props) => {
     );
 };
 
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
-});
+
 
 //make this component available to the app
 export default Home;
